@@ -1,4 +1,5 @@
 #!/d/Dev/Python38/python
+import os
 
 from garminconnect import (
     Garmin,
@@ -18,8 +19,11 @@ Enable debug logging
 
 today = date.today()
 
-YOUR_EMAIL = 'aby.pzcrazy+garmin@gmail.com'
-YOUR_PASSWORD = 'zwNe7dsqAcNe*$Z'
+confpath = os.getcwd()
+conf = open(confpath + '\\config\\creds.conf')
+
+YOUR_EMAIL = conf.readline().rstrip() 
+YOUR_PASSWORD = conf.readline().rstrip() 
 
 """
 Initialize Garmin client with credentials
